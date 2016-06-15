@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< b8822e4f80439a56213154bcd087289b86194e53
 ActiveRecord::Schema.define(version: 20160615203951) do
+=======
+ActiveRecord::Schema.define(version: 20160615204910) do
+>>>>>>> Working on search gem
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +46,16 @@ ActiveRecord::Schema.define(version: 20160615203951) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "searchable_id"
+    t.string   "searchable_type"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "pg_search_documents", ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id", using: :btree
 
   create_table "snapshots", force: :cascade do |t|
     t.string   "body",       null: false
