@@ -8,17 +8,24 @@ class ArticlesController < ApplicationController
   		@articles = Article.all
  	end
 
-    def new
+  def new
     	@article = Article.new
+      @article.snapshots << Snapshot.new
  	end
 
   	def create
-     	@article = Article.new(article_params)
-    	if @article.save
-       	 redirect_to articles_path
-    	else
-     	 render 'new'
-   	    end
+      @article = Article.new(article_params)
+      if @article.save
+        @snapshot = Snapshot.new(snapshot_params)
+        @snapshot.article = @article
+          if @snapshot.save
+           redirect_to articles_path
+          else
+           render 'new'
+          end
+      else
+        render 'new'
+      end
   	end
 
 	def edit
@@ -40,7 +47,11 @@ class ArticlesController < ApplicationController
 	private
 
 	def article_params
-    	params.require(:article).permit(:title, :body)
-  	end
+    p	params.require(:article).permit(:title)
+  end
+
+  def snapshot_params
+      params.require(:article).require(:snapshots).permit(:body)
+  end
 
 end

@@ -2,8 +2,11 @@
 
 <% @articles.each do |article| %>
 <h4>Title:</h4> <%= article.title %><br>
-<h4>Body:</h4> <%= article.body %>
+<h4>Body:</h4> 
+<% article.snapshots.each do |snapshot| %>
+<%= snapshot.body %>
+<% end %>
 <% end %>
 <p>
-Create a <a href='articles/new'>new</a> article!
+	Create a <a href='articles/new'>new</a> article!
 </p>
