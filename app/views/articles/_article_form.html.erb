@@ -1,0 +1,17 @@
+<%= form_for :article, url: articles_path do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+ 
+  <p>
+  <%= fields for :snapshot, @article.snapshot.body do |f| %>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+    <% end %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
