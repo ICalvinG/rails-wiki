@@ -1,4 +1,7 @@
 class CategoriesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :destroy] 
+  before_action :ensure_admin!, only: [:new, :create, :destroy]
+
 
   def index
     @categories = Category.all
@@ -9,10 +12,9 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    category = Category.create(name: params[:name])
+    @category = Category.new(name: params[:name])
 
-    # ADMIN CAN ONLY CREATE A CATEGORY
-    if category
+    if @category.save
       redirect category_url(category)
     else
       render 'new'
