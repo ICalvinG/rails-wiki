@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
-    before_action :authenticate_user! exception: [:index, :show]
-      before_action :ensure_admin!, only: [:new, :create, :destroy]
+  before_action :authenticate_user! exception: [:index, :show]
+  before_action :ensure_admin!
  
 
 	def index
