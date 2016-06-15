@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20160615163246) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",                              null: false
+    t.string   "body",                               null: false
     t.boolean  "featured?",  default: false
     t.string   "state",      default: "unpublished"
     t.datetime "created_at",                         null: false

@@ -1,0 +1,9 @@
+<h1>Welcome to the Articles Index!</h1>
+
+<% @articles.each do |article| %>
+<h4>Title:</h4> <%= article.title %><br>
+<h4>Body:</h4> <%= article.body %>
+<% end %>
+<p>
+Create a <a href='articles/new'>new</a> article!
+</p>
