@@ -37,12 +37,6 @@ ActiveRecord::Schema.define(version: 20160616160705) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "groups", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "pg_search_documents", force: :cascade do |t|
     t.text     "content"
     t.integer  "searchable_id"
@@ -54,8 +48,8 @@ ActiveRecord::Schema.define(version: 20160616160705) do
   add_index "pg_search_documents", ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
-    t.integer  "users_id",   null: false
-    t.integer  "wikis_id",   null: false
+    t.integer  "user_id",    null: false
+    t.integer  "wiki_id",    null: false
     t.boolean  "admin?",     null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
