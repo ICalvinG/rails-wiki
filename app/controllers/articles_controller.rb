@@ -1,6 +1,11 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
   # before_action :ensure_admin!, only: [:edit, :update, :destroy]
+  def search
+    @search = Article.search(include: [:title]) do
+      keywords(params[:q])
+    end
+  end
 
  	def index
   		@articles = Article.all
@@ -44,8 +49,13 @@ class ArticlesController < ApplicationController
       if @article.update(article_params)
         @snapshot = Snapshot.find(@article.snapshots.last.id)
         @snapshot.article = @article
-          if @snapshot.update(snapshot_params)
-           redirect_to articles_path
+          if @snapshot = Snapshot.new(snapshot_params)
+             @snapshot.article = @article
+            if @snapshot.save
+              redirect_to articles_path
+            else
+              render 'edit'
+            end
           else
            render 'edit'
           end

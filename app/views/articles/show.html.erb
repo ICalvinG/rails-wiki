@@ -1,3 +1,6 @@
 <h4>Title:</h4> <%= @article.title %><br>
 <h4>Body:</h4> <%= @snapshot.body.html_safe %><br>
-Click here to see your <%= link_to 'revision', snapshots_path(@snapshot) %> history!
+<%= link_to 'Show', article_path(@article) %>
+<%= link_to 'Edit', edit_article_path(@article) %>
+<%= link_to 'Destroy', article_path(@article), method: "delete" %><br><br>
+Click here to see your <%= link_to 'revision', snapshot_path(@snapshot) %> history!
