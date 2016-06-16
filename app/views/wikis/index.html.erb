@@ -1,25 +1,12 @@
-<h1>Available Wikis:</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-  </tr>
-
+<h2>available wikis:</h2>
 
 
   <% @wikis.each do |wiki| %>
-    <tr>
-      <td><%= wiki.name %></td>
-      <td><%= link_to 'Show', wiki_path(wiki) %></td>
-      <td><%= link_to 'Edit', edit_wiki_path(wiki) %></td>
-    </tr>
+    <div class="wiki-name"><%= link_to wiki.name, wiki_path(wiki) %></div>
+    <div class="edit-wiki-link"><%= link_to 'edit this wiki', edit_wiki_path(wiki) %></div>
   <% end %>
-</table>
 
-<%= link_to 'New Group', new_wiki_path %>
+  <div class="create-new-wiki-link"><%= link_to "don't see a wiki you like? create a new wiki!", new_wiki_path %></div>
 
-<%= form_tag("/search", method: "get") do %>
-  <%= label_tag(:name, "Search for:") %>
-  <%= text_field_tag(:name) %>
-  <%= submit_tag("Search") %>
-<% end %>
+
+

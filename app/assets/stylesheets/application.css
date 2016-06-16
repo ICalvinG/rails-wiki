@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+
+@import url(https://fonts.googleapis.com/css?family=Poppins:400,700,600,500,300|Righteous|Comfortaa:400,300,700);
+
+
+body {
+  font-family: 'Comfortaa', sans-serif;
+
+
+}
+
+
+.search-form-container {
+
+}
+
+
+.wiki-name {
+}
+
+.edit-wiki-link {
+}
+
