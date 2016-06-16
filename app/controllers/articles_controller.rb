@@ -56,7 +56,9 @@ class ArticlesController < ApplicationController
 
 	def destroy
     @article = Article.find(params[:id])
+    @snapshot = Snapshot.find(@article.snapshots.last.id)
       @article.destroy
+      @snapshot.destroy
  
       redirect_to articles_path
 	end
