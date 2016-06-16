@@ -2,12 +2,10 @@
 <% @articles.each do |article| %>
 <h4>Title:</h4> <%= article.title %><br>
 <h4>Body:</h4> 
-<% article.snapshots.each do |snapshot| %>
-<%= snapshot.body.html_safe %><br>
+<%= article.snapshots.last.body.html_safe%><br>
 <%= link_to 'Show', article_path(article) %>
 <%= link_to 'Edit', edit_article_path(article) %>
 <%= link_to 'Destroy', article_path(article), method: "delete" %>
-<% end %>
 <% end %>
 <p>
 	Create a <a href='articles/new'>new</a> article!

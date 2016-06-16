@@ -1,10 +1,10 @@
 class SnapshotsController < ApplicationController
 
-	def index
-		@snapshots = Snapshot.all
-    	# @snapshot = Snapshot.find(@article.snapshots.last.id)
+	def show
+		@snapshot = Snapshot.find(params[:id])
+    	@article = Article.find(@snapshot.article_id)
 
-		render 'index'
+		render 'show'
 	end
 
 end

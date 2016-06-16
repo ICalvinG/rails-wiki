@@ -44,8 +44,13 @@ class ArticlesController < ApplicationController
       if @article.update(article_params)
         @snapshot = Snapshot.find(@article.snapshots.last.id)
         @snapshot.article = @article
-          if @snapshot.update(snapshot_params)
-           redirect_to articles_path
+          if @snapshot = Snapshot.new(snapshot_params)
+             @snapshot.article = @article
+            if @snapshot.save
+              redirect_to articles_path
+            else
+              render 'edit'
+            end
           else
            render 'edit'
           end
