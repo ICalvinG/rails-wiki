@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!, exception: [:index, :show]
-  # before_action :ensure_admin!, only: [:update, :edit, :destroy]
- 
+  before_action :ensure_admin!, only: [:update, :edit, :destroy]
+
 
 	def index
 		@groups = Group.all
@@ -18,7 +18,7 @@ class GroupsController < ApplicationController
 		@group = Group.find(params[:id])
 	end
 
-	def create	
+	def create
 		@group = Group.new(params.require(:group).permit(:name))
 		@group.save
   		redirect_to @group
@@ -26,7 +26,7 @@ class GroupsController < ApplicationController
 
 	def update
 		 @group = Group.find(params[:id])
- 
+
   		if @group.update(params.require(:group).permit(:name))
     		redirect_to @group
   		else
@@ -37,7 +37,7 @@ class GroupsController < ApplicationController
 	def destroy
 		@group = Group.find(params[:id])
   		@group.destroy
- 
-  		redirect_to groups_path	
+
+  		redirect_to groups_path
 	end
 end

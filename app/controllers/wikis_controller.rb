@@ -1,7 +1,6 @@
 class WikisController < ApplicationController
   before_action :authenticate_user!, only: [:create]
-  before_action :ensure_admin!, only: [:update, :edit, :destroy]
-
+  before_action :ensure_admin!, only: [:edit, :update, :destroy]
 
 	def index
 		@wikis = Wiki.all
