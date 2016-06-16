@@ -5,21 +5,21 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   private
-    def ensure_admin!
-      unless current_user_admin_access? 
 
-         @admin_errors = ["Insufficient permissions for the page you are trying to access"]
+  def is_admin?
+    current_user.try :admin
+  end
 
-        # sign_out current_user
+  def ensure_admin!
+    unless is_admin?
+    @admin_errors = ["Insufficient permissions for the page you are trying to access"]
 
-        # redirect_to root_path
+      # sign_out current_user
 
-        return false
-      end
+      # redirect_to root_path
+
+      return false
     end
-
-  def current_user_admin_access?
-    current_user.roles.include? { |role| role.user_id == current_user.id && role.admin? }   
   end
 
 end

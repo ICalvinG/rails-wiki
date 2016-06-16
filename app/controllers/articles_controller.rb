@@ -1,11 +1,8 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
-  # before_action :ensure_admin!, only: [:edit, :update, :destroy]
-  def search
-    @search = Article.search(include: [:title]) do
-      keywords(params[:q])
-    end
-  end
+
+  before_action :ensure_admin!, only: [:edit, :update, :destroy]
+
 
  	def index
   		@articles = Article.all
@@ -40,7 +37,7 @@ class ArticlesController < ApplicationController
 	def show
 		@article = Article.find(params[:id])
     @snapshot = Snapshot.find(@article.snapshots.last.id)
-    
+
 		render 'show'
 	end
 
@@ -68,8 +65,9 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @snapshot = Snapshot.find(@article.snapshots.last.id)
       @article.destroy
+
       @snapshot.destroy
- 
+
       redirect_to articles_path
 	end
 

@@ -2,8 +2,18 @@
 
 
   <% @wikis.each do |wiki| %>
+<<<<<<< d91eecabb6d482ec35514c4135ef108447de39c1
     <div class="wiki-name"><%= link_to wiki.name, wiki_path(wiki) %></div>
     <div class="edit-wiki-link"><%= link_to 'edit this wiki', edit_wiki_path(wiki) %></div>
+=======
+    <tr>
+      <td><%= wiki.name %></td>
+      <td><%= link_to 'Show', wiki_path(wiki) %></td>
+      <% if current_user && wiki.administered_by?(current_user) %>
+      <td><%= link_to 'Edit', edit_wiki_path(wiki) %></td>
+      <% end %>
+    </tr>
+>>>>>>> add admin functionality
   <% end %>
 
   <div class="create-new-wiki-link"><%= link_to "don't see a wiki you like? create a new wiki!", new_wiki_path %></div>
