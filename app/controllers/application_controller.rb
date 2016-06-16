@@ -9,7 +9,8 @@ class ApplicationController < ActionController::Base
     def ensure_admin!
       unless current_user.admin?
 
-         @admin_errors = ["Insufficient permissions for the page you tried to access"]
+         @admin_errors = ["Insufficient permissions for the page you are trying to access"]
+
 
         # sign_out current_user
 

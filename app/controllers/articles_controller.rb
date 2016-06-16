@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user! exception: [:index, :show]
-  before_action :ensure_admin!
+  before_action :authenticate_user!, only: [:new, :create]
+  before_action :ensure_admin!, only: [:edit, :update, :destroy]
 
 
 

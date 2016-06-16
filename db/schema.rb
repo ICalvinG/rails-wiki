@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< b8822e4f80439a56213154bcd087289b86194e53
-ActiveRecord::Schema.define(version: 20160615203951) do
-=======
 ActiveRecord::Schema.define(version: 20160615204910) do
->>>>>>> Working on search gem
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
