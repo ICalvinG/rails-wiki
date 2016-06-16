@@ -1,6 +1,11 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
   # before_action :ensure_admin!, only: [:edit, :update, :destroy]
+  def search
+    @search = Article.search(include: [:title]) do
+      keywords(params[:q])
+    end
+  end
 
  	def index
   		@articles = Article.all

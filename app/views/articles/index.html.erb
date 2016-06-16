@@ -1,4 +1,15 @@
 <h1>Welcome to the Articles Index!</h1>
+
+<h2>Search for an article:</h2>
+<%= form_tag search_path, method: :get do %>
+<%= text_field_tag :search, params[:q] %>
+<%=submit_tag "search", name: nil%>
+<%end%>
+
+
+
+
+
 <% @articles.each do |article| %>
 <h4>Title:</h4> <%= article.title %><br>
 <h4>Body:</h4> 
@@ -10,3 +21,4 @@
 <p>
 	Create a <a href='articles/new'>new</a> article!
 </p>
+
