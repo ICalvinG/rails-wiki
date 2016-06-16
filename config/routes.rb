@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :wikis
   resources :snapshots
+  resources :roles
 
   get "search" => 'search#index'
 
