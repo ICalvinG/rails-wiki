@@ -1,8 +1,8 @@
-class CreateGroups < ActiveRecord::Migration
+class CreateWikis < ActiveRecord::Migration
   def change
-    create_table :groups do |t|
+    create_table :wikis do |t|
       t.string   :name, null: false
-
+      
       t.timestamps null: false
     end
   end

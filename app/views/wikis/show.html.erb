@@ -1,0 +1,13 @@
+<p>
+  <strong>Wiki Name:</strong>
+  <div>
+  <%= @wiki.name %>
+  </div>
+  <div>
+  <%= link_to 'Destroy', wiki_path(@wiki),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+  </div>
+</p>
+
+<%= link_to 'Back', wikis_path %>
