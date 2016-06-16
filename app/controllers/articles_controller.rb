@@ -27,25 +27,43 @@ class ArticlesController < ApplicationController
   	end
 
 	def edit
+    @article = Article.find(params[:id])
+      render 'edit'
 	end
 
 	def show
 		@article = Article.find(params[:id])
+    @snapshot = Snapshot.find(@article.snapshots.last.id)
 
 		render 'show'
 	end
 
 	def update
+    @article = Article.find(params[:id])
+      if @article.update(article_params)
+        @snapshot = Snapshot.find(article.snapshots.last.id)
+        @snapshot.article = @article
+          if @snapshot.update(snapshot_params)
+           redirect_to articles_path
+          else
+           render 'edit'
+          end
+      else
+        render 'edit'
+      end
 	end
 
 	def destroy
-
+    @article = Article.find(params[:id])
+      @article.destroy
+ 
+      redirect_to articles_path
 	end
 
 	private
 
 	def article_params
-    p	params.require(:article).permit(:title)
+      params.require(:article).permit(:title)
   end
 
   def snapshot_params
