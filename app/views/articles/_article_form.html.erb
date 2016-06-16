@@ -7,7 +7,7 @@
   <p>
   <%= f.fields_for :snapshots do |s| %>
     <%= s.label :body %><br>
-    <%= s.text_area :body %>
+    <%= s.cktext_area :body, rows: 10 %>
     <% end %>
   </p>
  
