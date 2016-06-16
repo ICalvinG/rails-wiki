@@ -1,0 +1,8 @@
+<h1>Revision History</h1>
+<% @article.snapshots.each do |snapshot| %>
+<b>Snapshot:</b> <%= snapshot.body.html_safe %>
+<b>Created:</b> <%= snapshot.created_at %><br>
+<b>Updated:</b> <%= snapshot.updated_at %><br><br>
+<% end %>
+
+Back to your <%= link_to 'article', article_path(@article) %>!
