@@ -40,7 +40,7 @@ class ArticlesController < ApplicationController
 	def update
     @article = Article.find(params[:id])
       if @article.update(article_params)
-        @snapshot = Snapshot.find(article.snapshot.id)
+        @snapshot = Snapshot.find(article.snapshots.last.id)
         @snapshot.article = @article
           if @snapshot.update(snapshot_params)
            redirect_to articles_path
