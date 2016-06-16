@@ -1,5 +1,5 @@
 class WikisController < ApplicationController
-  before_action :authenticate_user!, exception: [:index, :show]
+  before_action :authenticate_user!, only: [:create]
   before_action :ensure_admin!, only: [:update, :edit, :destroy]
 
 
@@ -20,8 +20,9 @@ class WikisController < ApplicationController
 
 	def create
 		@wiki = Wiki.new(params.require(:wiki).permit(:name))
-		@wiki.save
-  		redirect_to @wiki
+    @wiki.save
+    @role = Role.create(admin?: true, user_id: current_user.id, wiki_id: @wiki.id)
+      redirect_to @wiki
 	end
 
 	def update

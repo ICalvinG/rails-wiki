@@ -5,12 +5,13 @@
     <th>Name</th>
   </tr>
 
+
+
   <% @wikis.each do |wiki| %>
     <tr>
       <td><%= wiki.name %></td>
       <td><%= link_to 'Show', wiki_path(wiki) %></td>
       <td><%= link_to 'Edit', edit_wiki_path(wiki) %></td>
-
     </tr>
   <% end %>
 </table>
