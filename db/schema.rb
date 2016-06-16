@@ -37,12 +37,6 @@ ActiveRecord::Schema.define(version: 20160616160705) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "groups", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "pg_search_documents", force: :cascade do |t|
     t.text     "content"
     t.integer  "searchable_id"
