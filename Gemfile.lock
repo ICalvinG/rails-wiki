@@ -179,10 +179,10 @@ PLATFORMS
 
 DEPENDENCIES
   devise (~> 4.1, >= 4.1.1)
-  pg_search
   jbuilder (~> 2.0)
   jquery-rails
   pg (~> 0.15)
+  pg_search
   pry-rails
   rails (= 4.2.6)
   rspec-rails (~> 3.4)
