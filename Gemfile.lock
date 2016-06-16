@@ -41,6 +41,13 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
+    ckeditor (4.1.6)
+      cocaine
+      orm_adapter (~> 0.5.0)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.8)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.1)
     concurrent-ruby (1.0.2)
     debug_inspector (0.0.2)
@@ -174,6 +181,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ckeditor
   devise (~> 4.1, >= 4.1.1)
   jbuilder (~> 2.0)
   jquery-rails
