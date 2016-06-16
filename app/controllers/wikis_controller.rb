@@ -1,6 +1,6 @@
 class WikisController < ApplicationController
   before_action :authenticate_user!, exception: [:index, :show]
-  before_action :ensure_admin!, only: [:update, :edit, :destroy]
+  # before_action :ensure_admin!, only: [:update, :edit, :destroy]
 
 
 	def index
