@@ -1,10 +1,9 @@
-<h4>Title:</h4> <%= @article.title %><br>
-<h4>Body:</h4> <%= @snapshot.body.html_safe %><br>
-<%= link_to 'Show', article_path(@article) %>
-
+<h4><%= link_to @article.title, article_path(@article) %></h4>
+<div><%= @snapshot.body.html_safe %></div>
 
   <% if current_user && @wiki.administered_by?(current_user) %>
-    <%= link_to 'Edit', edit_article_path(@article) %>
-    <%= link_to 'Destroy', article_path(@article), method: "delete" %><br><br>
-<% end %>
-Click here to see your <%= link_to 'revision', snapshot_path(@snapshot) %> history!
+    <div class="edit-link"><%= link_to 'edit your article', edit_article_path(@article) %></div>
+    <div class="delete-link"><%= link_to 'delete your article', article_path(@article), method: "delete" %></div>
+
+    Click here to see your <%= link_to 'revision', snapshot_path(@snapshot) %> history!
+  <% end %>

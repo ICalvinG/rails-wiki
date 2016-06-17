@@ -2,14 +2,12 @@
 
 
   <% @wikis.each do |wiki| %>
-    <div class="wiki-name"><%= link_to wiki.name, wiki_path(wiki) %></div>
-    <tr>
-      <td><%= wiki.name %></td>
-      <td><%= link_to 'Show', wiki_path(wiki) %></td>
+    <div class="wiki-name"><h3><%= link_to wiki.name, wiki_path(wiki) %></h3></div>
       <% if current_user && wiki.administered_by?(current_user) %>
-      <td><%= link_to 'Edit', edit_wiki_path(wiki) %></td>
+    <div class="edit-link"><%= link_to 'edit this wiki', edit_wiki_path(wiki) %></div>
+    <div class="delete-link"><%= link_to 'delete this wiki', wiki_path(wiki), method: :delete, data: { confirm: 'Are you sure?' } %></div>
+    
       <% end %>
-    </tr>
   <% end %>
 
   <div class="create-new-wiki-link"><%= link_to "don't see a wiki you like? create a new wiki!", new_wiki_path %></div>

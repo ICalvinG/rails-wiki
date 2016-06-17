@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
         @snapshot = Snapshot.new(snapshot_params)
         @snapshot.article = @article
           if @snapshot.save
-           redirect_to articles_path
+           redirect_to article_path(@snapshot.article)
           else
            render 'new'
           end
