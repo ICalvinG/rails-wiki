@@ -4,7 +4,4 @@ class Role < ActiveRecord::Base
 
   validates :user, :wiki, presence: true
 
-
-
-
 end
