@@ -22,11 +22,11 @@
   </p>
     <%= f.fields_for :snapshots do |s| %>
     <%= s.label :body %><br>
-    <%= s.cktext_area :body, , class: "input-field", rows: 10, value: @article.snapshots.last.body%>
+    <%= s.cktext_area :body, class: "input-field", rows: 10, value: @article.snapshots.last.body%>
     <% end %>
   </p>
   <p>
-    <%= f.submit %>
+    <%= f.submit "submit", class: "button" %>
   </p>
  
 <% end %>
