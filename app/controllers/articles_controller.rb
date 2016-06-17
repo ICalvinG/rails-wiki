@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
       @wiki = Wiki.find(params[:wiki_id])
       @article = Article.new(article_params.merge(wiki: @wiki))
       if @article.save
-        redirect_to wikis_path
+        redirect_to wiki_path(@wiki)
       else
         render 'new'
       end
@@ -41,13 +41,14 @@ class ArticlesController < ApplicationController
 
 	def update
     @article = Article.find(params[:id])
+    @wiki = Wiki.find_by(id: @article.wiki_id)
       if @article.update(article_params)
         @snapshot = Snapshot.find(@article.snapshots.last.id)
         @snapshot.article = @article
           if @snapshot = Snapshot.new(snapshot_params)
              @snapshot.article = @article
             if @snapshot.save
-              redirect_to articles_path
+              redirect_to article_path
             else
               render 'edit'
             end
