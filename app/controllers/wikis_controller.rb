@@ -9,6 +9,7 @@ class WikisController < ApplicationController
 	def show
 		@wiki = Wiki.find(params[:id])
 		@wikis = Wiki.search(params[:search])
+		@role = @wiki.roles.new
 	end
 
 	def new

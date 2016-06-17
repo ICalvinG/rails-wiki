@@ -5,7 +5,7 @@
 	<% if @wiki.administered_by?(role.user)%>
 		<%=check_box_tag('admin', 'yes', true)%>
 	<% else %>
-		<%=check_box_tag('admin', 'yes', false)%>
+		<%=check_box_tag('admin', 'yes', false, class: "checkbox")%>
 	<%end%>
-	<%= submit_tag "update status"%>
+	<%= submit_tag "update status", class: "button" %>
 <%end%>
