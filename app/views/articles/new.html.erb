@@ -1,3 +1,7 @@
 <h1>create an article for your wiki</h1>
 
-<%= render 'article_form' %>
+<%= form_for [@wiki, @article] do |f| %>
+
+<%= render 'article_form', f: f %>
+
+<% end %>

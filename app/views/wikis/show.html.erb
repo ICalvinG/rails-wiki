@@ -4,8 +4,6 @@
   <div><h2><%= @wiki.name %> Wiki</h2></div>
 
 
-
-
 <% if @wiki.articles.empty?  %>
   <div>there are currently no articles in this wiki, check back soon!</div>
 <% else %> 
@@ -17,7 +15,7 @@
 <% end %>
 
   <% if current_user && @wiki.administered_by?(current_user) %>
-    <div><h3><%= link_to "create a new article for this wiki", new_article_path %></div></h3><br>
+    <div><h3>  <div><%= link_to "create a new article for this wiki", new_wiki_article_path(@wiki) %></div></h3><br>
   <% end %>
 
 
