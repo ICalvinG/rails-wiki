@@ -7,16 +7,31 @@ Role.delete_all
 Snapshot.delete_all
 
 chand = User.create!(email: "chand@chand.com", password: "123456")
+chands_wiki = Wiki.create!(name: 'Chand Technologies')
+chands_admin_role = chand.roles.create!(admin?: true, wiki_id: chands_wiki.id)
+
 ilya = User.create!(email: "ilya@ilya.com", password: "123456")
+ilyas_wiki = Wiki.create!(name: 'Ilya Industries')
+ilyas_admin_role = ilya.roles.create!(admin?: true, wiki_id: ilyas_wiki.id)
+
 calvin = User.create!(email: "calvin@calvin.com", password: "123456")
+calvins_wiki = Wiki.create!(name: 'Calvin Corporation')
+calvins_admin_role = calvin.roles.create!(admin?: true, wiki_id: calvins_wiki.id)
+
 alice = User.create!(email: "alice@alice.com", password: "123456")
+alices_wiki = Wiki.create!(name: 'Alice Co.')
+alices_admin_role = alice.roles.create!(admin?: true, wiki_id: alices_wiki.id)
+
 joe = User.create!(email: "joe@joe.com", password: "123456")
+joes_wiki = Wiki.create!(name: 'Joe Inc.')
+joes_admin_role = joe.roles.create!(admin?: true, wiki_id: joes_wiki.id)
 
-joe.roles.create
 
-article_one = Article.create!(title: "Rails is awesome", featured?: true)
-
-article_two = Article.create!(title: "Devise Gem How-to", featured?: false)
+chands_article = chand.articles.create!(title: "Rails is awesome", featured?: true, wiki_id: chands_wiki.id)
+ilyas_article = ilya.articles.create!(title: "Devise Gem How-to", featured?: true, wiki_id: ilyas_wiki.id)
+calvins_article = calvin.articles.create!(title: "Calvin is the best!", featured?: true, wiki_id: calvins_wiki.id)
+alices_article = alice.articles.create!(title: "Rails Gems", featured?: true, wiki_id: alices_wiki.id)
+joes_article = joe.articles.create!(title: "I like Rails", featured?: true, wiki_id: joes_wiki.id)
 
 Snapshot.create!(body: "rails is great", article: article_one, user_id: 1)
 
