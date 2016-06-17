@@ -1,4 +1,4 @@
-<h1>Edit Wiki</h1>
+<h2>edit your wiki</h2>
 
 <%= form_for :wiki, url: wiki_path(@wiki), method: :patch do |f| %>
 
@@ -18,10 +18,10 @@
 
   <p>
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "input-field" %>
   </p>
   <p>
-    <%= f.submit %>
+    <%= f.submit, class: "button" %>
   </p>
 
 <% end %>

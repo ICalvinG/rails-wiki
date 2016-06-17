@@ -1,13 +1,13 @@
 <%= form_for :article, url: articles_path do |f| %>
   <p>
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: "input-field" %>
   </p>
  
   <p>
   <%= f.fields_for :snapshots do |s| %>
     <%= s.label :body %><br>
-    <%= s.cktext_area :body, rows: 10 %>
+    <%= s.cktext_area :body, rows: 10, class: "input-field" %>
     <% end %>
   </p>
  

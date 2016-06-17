@@ -1,4 +1,4 @@
-<h1>Edit Articles</h1>
+<h2>edit your article</h2>
 
 <%= form_for :article, url: article_path(@article), method: :patch do |f| %>
  
@@ -18,15 +18,15 @@
  
   <p>
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: "input-field" %>
   </p>
     <%= f.fields_for :snapshots do |s| %>
     <%= s.label :body %><br>
-    <%= s.cktext_area :body, rows: 10, value: @article.snapshots.last.body%>
+    <%= s.cktext_area :body, , class: "input-field", rows: 10, value: @article.snapshots.last.body%>
     <% end %>
   </p>
   <p>
-    <%= f.submit %>
+    <%= f.submit, class: "button" %>
   </p>
  
 <% end %>

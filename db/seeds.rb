@@ -35,10 +35,14 @@ User.create!(email: "joeadmin@joe.com", password: "123456")
 
 
 
-
 article_one = Article.create!(title: "Rails is awesome", featured?: true)
 
 article_two = Article.create!(title: "Devise Gem How-to", featured?: false)
+
+Snapshot.create!(body: "rails is great", article: article_one, user_id: 1)
+
+Snapshot.create!(body: "devise is a bitch", article: article_two, user_id: 2)
+
 
 cat_one = Category.create!(name: "rails")
 
