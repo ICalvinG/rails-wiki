@@ -9,8 +9,9 @@ class ApplicationController < ActionController::Base
 
 
   def is_admin?
-    # current_user.roles.any? { |role| role.administered_by?(current_user) } || 
-    current_user.try :admin
+    if current_user
+      current_user.roles.any? { |role| role.admin? && role.wiki.administered_by?(current_user) }
+    end
   end
 
   def ensure_admin!
