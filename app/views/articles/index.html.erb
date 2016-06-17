@@ -1,11 +1,22 @@
 <h2>Welcome to the Articles Index!</h2>
 
+<<<<<<< bc7cf431bf172384b01b9c716e2fee3a7733b083
 <h3>Search for an article:</h3>
 <%= form_tag search_path, method: :get do %>
 <%= text_field_tag :search, params[:q] %>
 <%=submit_tag "search", name: nil%>
 <%end%>
+=======
+<h2>Search for an article:</h2>
+>>>>>>> functional search option
 
+
+<%= form_tag articles_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
 
 
 <% @articles.each do |article| %>

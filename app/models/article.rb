@@ -5,8 +5,13 @@ class Article < ActiveRecord::Base
   accepts_nested_attributes_for :snapshots
 
   validates :title, presence: true, length: {maximum: 20}
-  	searchable do
-  		string :title
-  		string :body
-	end
+
+	
+def self.search(search)
+  if search
+  	where('title LIKE ?', "%#{search}%")
+  else 
+  	all
+  end
+end
 end
