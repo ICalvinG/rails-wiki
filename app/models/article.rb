@@ -9,11 +9,5 @@ class Article < ActiveRecord::Base
   validates :title, presence: true, length: {maximum: 20}
 
 	
-def self.search(search)
-  if search
-  	where('title LIKE ?', "%#{search}%")
-  else 
-  	all
-  end
-end
+
 end
