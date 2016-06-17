@@ -1,4 +1,4 @@
-<h2>available wikis:</h2>
+<h2>wikirailsopedia wikis:</h2>
 
 
   <% @wikis.each do |wiki| %>
@@ -7,8 +7,8 @@
     <div class="edit-link"><%= link_to 'edit this wiki', edit_wiki_path(wiki) %></div>
     <div class="delete-link"><%= link_to 'delete this wiki', wiki_path(wiki), method: :delete, data: { confirm: 'Are you sure?' } %></div>
     
-      <% end %>
-  <% end %>
 
   <div class="create-new-wiki-link"><%= link_to "don't see a wiki you like? create a new wiki!", new_wiki_path %></div>
 
+      <% end %>
+  <% end %>
