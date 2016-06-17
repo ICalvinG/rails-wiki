@@ -1,36 +1,40 @@
+<div><h2><%= @wiki.name %> Wiki</h2></div>
 
+<% if @wiki.articles.empty? %>
+<div>there are currently no articles in this wiki, check back soon!</div>
 
-
-  <div><h2><%= @wiki.name %> Wiki</h2></div>
-
-
-<% if @wiki.articles.empty?  %>
-  <div>there are currently no articles in this wiki, check back soon!</div>
 <% else %> 
 
-  <% @wiki.articles.each do |article| %>
-    <%= link_to article.title, article_path(article) %>
-  <%end%>
+<% @wiki.articles.each do |article| %>
+<%= link_to article.title, article_path(article) %>
+<%end%>
 
 <% end %>
 
-  <% if current_user && @wiki.administered_by?(current_user) %>
-    <div><h3>  <div><%= link_to "create a new article for this wiki", new_wiki_article_path(@wiki) %></div></h3><br>
-  <% end %>
+<% if current_user && @wiki.administered_by?(current_user) %>
+<div><h3><%= link_to "create a new article for this wiki", new_article_path %></div></h3><br>
+<% end %>
 
 
- <h4>Search for an article within this wiki:</h4>
+<h4>Search for an article within this wiki:</h4>
 
 <%= form_tag wikis_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search], class: "input-field" %>
-    <%= submit_tag "search", :name => nil, class: "button" %>
-  </p>
+<p>
+<%= text_field_tag :search, params[:search], class: "input-field" %>
+<%= submit_tag "search", :name => nil, class: "button" %>
+</p>
 <% end %>
 
-  <% if current_user && @wiki.administered_by?(current_user) %>
-    <div><%= link_to "edit this wiki", edit_wiki_path(@wiki) %> • <%= link_to 'delete this wiki', wiki_path(@wiki), method: :delete, data: { confirm: 'Are you sure?' } %></div>  
-  <% end %>
+<% if current_user && !@wiki.administered_by?(current_user) %>
+<p>would you like to add an article to this wiki?<p>
+<%= form_tag '/roles' do %>
+<% hidden_field_tag(:wiki_id, @wiki.id)%>
+<%= submit_tag "join this wiki", name: 'join_wiki', class: "button" %>
+<% end %>
+<% end %>
+
+<% if current_user && @wiki.administered_by?(current_user) %>
+<div><%= link_to "edit this wiki", edit_wiki_path(@wiki) %> • <%= link_to 'delete this wiki', wiki_path(@wiki), method: :delete, data: { confirm: 'Are you sure?' } %>  • <%= link_to 'manage wiki user roles', roles_path(@wiki) %> </div> 
+<% end %>
 
 <div class="back-link"><%= link_to 'back', wikis_path %></div>
-

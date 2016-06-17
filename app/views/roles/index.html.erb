@@ -1,0 +1,11 @@
+<h1> Edit User Roles for this Wiki! </h1>
+<% @wiki.roles.each do |role| %>
+	<%= role.user.email %>
+	<%=form_tag('/roles/role.id/edit', method: :put)%>
+	<% if @wiki.administered_by?(role.user)%>
+		<%=check_box_tag('admin', 'yes', true)%>
+	<% else %>
+		<%=check_box_tag('admin', 'yes', false, class: "checkbox")%>
+	<%end%>
+	<%= submit_tag "update status", class: "button" %>
+<%end%>
