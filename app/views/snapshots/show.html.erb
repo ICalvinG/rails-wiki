@@ -1,4 +1,4 @@
-<h2>your article revision history</h2>
+<h2 class="title-for-line">your article revision history</h2>
 <% @article.snapshots.each do |snapshot| %>
 <b>Snapshot:</b> <%= snapshot.body.html_safe %>
 <b>Created:</b> <%= snapshot.created_at %><br>
