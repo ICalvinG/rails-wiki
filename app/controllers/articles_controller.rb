@@ -10,7 +10,9 @@ class ArticlesController < ApplicationController
 
   def new
     	@article = Article.new
+      @wiki = Wiki.find_by(id: params[:id])
       @article.snapshots << Snapshot.new
+
  	end
 
   	def create
@@ -38,8 +40,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @snapshot = Snapshot.find(@article.snapshots.last.id)
     @user = @snapshot.user
-    binding.pry
-    @wiki = Wiki.find_by(user_id: @user.id)
+    @wiki = Wiki.find_by(id: @article.wiki_id)
 		render 'show'
 	end
 

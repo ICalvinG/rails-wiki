@@ -3,10 +3,13 @@ Rails.application.routes.draw do
   devise_for :users
   resources :articles
   resources :categories
-  resources :wikis
+  resources :wikis do
+    resources :articles
+  end
   resources :snapshots
   resources :roles
   
+  # get 'wikis/:id/articles/new' => 'articles#new'
 
   # get "search" => 'articles#search'
 

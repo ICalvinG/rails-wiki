@@ -12,6 +12,7 @@ class WikisController < ApplicationController
 	end
 
 	def new
+		
 	end
 
 	def edit
@@ -20,9 +21,9 @@ class WikisController < ApplicationController
 
 	def create
 		@wiki = Wiki.new(params.require(:wiki).permit(:name))
-    @wiki.save
-    @wiki.roles.create(admin?: true, user_id: current_user.id, wiki_id: @wiki.id)
-      redirect_to @wiki
+    	@wiki.save
+    	@wiki.roles.create(admin?: true, user_id: current_user.id, wiki_id: @wiki.id)
+      	redirect_to @wiki
 	end
 
 	def update
