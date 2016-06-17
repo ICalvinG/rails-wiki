@@ -1,7 +1,7 @@
 <h1>create an article for your wiki</h1>
 
-<%= form_for :article, url: articles_path do |f| %>
+<%= form_for [@wiki, @article] do |f| %>
 
-<%= render 'article_form', f: f, wiki: @wiki %>
+<%= render 'article_form', f: f %>
 
 <% end %>

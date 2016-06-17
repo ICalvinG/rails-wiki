@@ -10,21 +10,16 @@ class ArticlesController < ApplicationController
 
   def new
     	@article = Article.new
-      @wiki = Wiki.find_by(id: params[:id])
+      @wiki = Wiki.find_by(id: params[:wiki_id])
       @article.snapshots << Snapshot.new
 
  	end
 
   	def create
-      @article = Article.new(article_params)
+      @wiki = Wiki.find(params[:wiki_id])
+      @article = Article.new(article_params.merge(wiki: @wiki))
       if @article.save
-        @snapshot = Snapshot.new(snapshot_params)
-        @snapshot.article = @article
-          if @snapshot.save
-           redirect_to article_path(@snapshot.article)
-          else
-           render 'new'
-          end
+        redirect_to wikis_path
       else
         render 'new'
       end
@@ -77,7 +72,10 @@ class ArticlesController < ApplicationController
 	private
 
 	def article_params
-      params.require(:article).permit(:title)
+      params.require(:article).permit(
+        :title,
+        snapshots_attributes: [:body]
+      )
   end
 
   def snapshot_params
