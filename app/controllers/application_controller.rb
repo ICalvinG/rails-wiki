@@ -6,7 +6,10 @@ class ApplicationController < ActionController::Base
 
   private
 
+
+
   def is_admin?
+    # current_user.roles.any? { |role| role.administered_by?(current_user) } || 
     current_user.try :admin
   end
 
