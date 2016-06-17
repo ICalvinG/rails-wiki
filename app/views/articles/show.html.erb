@@ -1,9 +1,11 @@
 <h4><%= link_to @article.title, article_path(@article) %></h4>
-<div><%= @snapshot.body.html_safe %></div>
+
+  <div><%= @snapshot.body.html_safe %></div>
 
   <% if current_user && @wiki.administered_by?(current_user) %>
-    <div class="edit-link"><%= link_to 'edit your article', edit_article_path(@article) %></div>
-    <div class="delete-link"><%= link_to 'delete your article', article_path(@article), method: "delete" %></div>
 
-    Click here to see your <%= link_to 'revision', snapshot_path(@snapshot) %> history!
+    <div><%= link_to 'edit your article', edit_article_path(@article) %> • <%= link_to 'delete your article', article_path(@article), method: "delete" %></div>
+
+    <div>see your <%= link_to 'revisions', snapshot_path(@snapshot) %>history!</div>
+
   <% end %>
