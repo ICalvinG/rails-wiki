@@ -1,39 +1,18 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 User.delete_all
 Article.delete_all
 Category.delete_all
 ArticlesCategory.delete_all
+Wiki.delete_all
+Role.delete_all
+Snapshot.delete_all
 
+chand = User.create!(email: "chand@chand.com", password: "123456")
+ilya = User.create!(email: "ilya@ilya.com", password: "123456")
+calvin = User.create!(email: "calvin@calvin.com", password: "123456")
+alice = User.create!(email: "alice@alice.com", password: "123456")
+joe = User.create!(email: "joe@joe.com", password: "123456")
 
-User.create!(email: "chand@chand.com", password: "123456")
-
-User.create!(email: "ilya@ilya.com", password: "123456")
-
-User.create!(email: "calvin@calvin.com", password: "123456")
-
-User.create!(email: "alice@alice.com", password: "123456")
-
-User.create!(email: "joe@joe.com", password: "123456")
-
-
-User.create!(email: "chandadmin@chand.com", password: "123456")
-
-User.create!(email: "ilyaadmin@ilya.com", password: "123456")
-
-User.create!(email: "calvinadmin@calvin.com", password: "123456")
-
-User.create!(email: "aliceadmin@alice.com", password: "123456")
-
-User.create!(email: "joeadmin@joe.com", password: "123456")
-
-
+joe.roles.create
 
 article_one = Article.create!(title: "Rails is awesome", featured?: true)
 
@@ -57,5 +36,3 @@ ArticlesCategory.create!(article: article_two, category: cat_one)
 ArticlesCategory.create!(article: article_two, category: cat_two)
 
 ArticlesCategory.create!(article: article_two, category: cat_three)
-
-
