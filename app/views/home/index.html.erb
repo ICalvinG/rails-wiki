@@ -13,11 +13,12 @@
 <% end %>
 
   <h4 id="featured-articles-homepage-title">featured articles:</h4>
+  
     <% @articles.each do |article| %>
     <% if article.featured? %>
       <h3><%= link_to article.title, article_path(article) %></h3>
         <% article.categories.each do |category| %>
-          <div>filed under: <%= category.name %></div>
+          <div id="category">filed under: <%= category.name %></div>
           <% end %>
       </div>
     <% end %>
