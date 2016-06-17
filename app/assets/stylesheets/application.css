@@ -16,20 +16,96 @@
 
 @import url(https://fonts.googleapis.com/css?family=Poppins:400,700,600,500,300|Righteous|Comfortaa:400,300,700);
 
-
 body {
-  font-family: 'Comfortaa:400', sans-serif;
-
-
+  font-family: 'Comfortaa', sans-serif;
+  font-weight: 300;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 100px;
 }
 
 
-.search-form-container {
+h1 {
+  font-weight: 700;
+}
 
+h2 {
+  font-weight: 700;
+}
+
+h3 {
+  font-weight: 700;
+}
+
+h4 {
+  font-family: 'Comfortaa', sans-serif;
+  font-weight: 400;
+}
+
+a, a:hover, a:visited {
+  color: black;
+}
+
+/*a:hover {
+  color: black;
+}
+
+a:visited {
+  color: black;
+}*/
+
+#header-image {
+  padding:250px;
+  width: 100%;
+  background-image: url("rails_wiki.jpg");
+  background-repeat: no-repeat;
+}
+
+form {
+}
+
+#login-signup-logout-container {
+  margin-bottom: 20px;
+  margin-top: 15px;
+}
+
+footer {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 12px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  text-align: right;
+}
+
+.input-field {
+      width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.input-field:focus {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  background-color: lightgrey;
+}
+
+.button {
+
+}
+
+#featured-articles-homepage-title {
+  font-weight: 700;
+  font-size: 20px;
+  border-bottom: 1px solid black;
 }
 
 
 .wiki-name {
+
 }
 
 .edit-wiki-link {

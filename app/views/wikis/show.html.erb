@@ -1,15 +1,6 @@
-<p>
-  <strong>Wiki Name:</strong>
-  <div>
-  <%= @wiki.name %>
-  </div>
+  <div><h2><%= link_to @wiki.name, wiki_path(@wiki) %></h2></div>
   <% if current_user && @wiki.administered_by?(current_user) %>
-  <div>
-  <%= link_to 'Destroy', wiki_path(@wiki),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %>
-  </div>
+    <div><%= link_to 'Destroy', wiki_path(@wiki), method: :delete, data: { confirm: 'Are you sure?' } %></div>
   <% end %>
-</p>
 
-<%= link_to 'Back', wikis_path %>
+<%= link_to 'back', wikis_path %>

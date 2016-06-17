@@ -37,7 +37,8 @@ class ArticlesController < ApplicationController
 	def show
 		@article = Article.find(params[:id])
     @snapshot = Snapshot.find(@article.snapshots.last.id)
-
+    @user = @snapshot.user
+    @wiki = Wiki.find_by(user_id: @user.id)
 		render 'show'
 	end
 

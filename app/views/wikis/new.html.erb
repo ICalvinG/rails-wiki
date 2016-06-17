@@ -1,9 +1,9 @@
-<h1>Create a new wiki:</h1>
+<h1>create a new wiki:</h1>
 
 <%= form_for :wiki, url: wikis_path do |f| %>
   <p>
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "input-field" %>
   </p>
   <p>
     <%= f.submit %>
