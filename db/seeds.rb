@@ -33,9 +33,9 @@ calvins_article = calvin.articles.create!(title: "Calvin is the best!", featured
 alices_article = alice.articles.create!(title: "Rails Gems", featured?: true, wiki_id: alices_wiki.id)
 joes_article = joe.articles.create!(title: "I like Rails", featured?: true, wiki_id: joes_wiki.id)
 
-Snapshot.create!(body: "rails is great", article: article_one, user_id: 1)
+Snapshot.create!(body: "rails is great", article: joes_article, user_id: 1)
 
-Snapshot.create!(body: "devise is a bitch", article: article_two, user_id: 2)
+Snapshot.create!(body: "not a fan of devise", article: chands_article, user_id: 2)
 
 
 cat_one = Category.create!(name: "rails")
@@ -44,10 +44,10 @@ cat_two = Category.create!(name: "gems")
 
 cat_three = Category.create!(name: "guide")
 
-ArticlesCategory.create!(article: article_one, category: cat_one)
+ArticlesCategory.create!(article: joes_article, category: cat_one)
 
-ArticlesCategory.create!(article: article_two, category: cat_one)
+ArticlesCategory.create!(article: chands_article, category: cat_one)
 
-ArticlesCategory.create!(article: article_two, category: cat_two)
+ArticlesCategory.create!(article: chands_article, category: cat_two)
 
-ArticlesCategory.create!(article: article_two, category: cat_three)
+ArticlesCategory.create!(article: chands_article, category: cat_three)
