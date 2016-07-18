@@ -27,27 +27,32 @@ joes_wiki = Wiki.create!(name: 'Joe Inc.')
 joes_admin_role = joe.roles.create!(admin?: true, wiki_id: joes_wiki.id)
 
 
-chands_article = chand.articles.create!(title: "Rails is awesome", featured?: true, wiki_id: chands_wiki.id)
+chands_article = chand.articles.create!(title: "Why Rails is Awesome", featured?: true, wiki_id: chands_wiki.id)
 ilyas_article = ilya.articles.create!(title: "Devise Gem How-to", featured?: true, wiki_id: ilyas_wiki.id)
-calvins_article = calvin.articles.create!(title: "Calvin is the best!", featured?: true, wiki_id: calvins_wiki.id)
-alices_article = alice.articles.create!(title: "Rails Gems", featured?: true, wiki_id: alices_wiki.id)
-joes_article = joe.articles.create!(title: "I like Rails", featured?: true, wiki_id: joes_wiki.id)
+calvins_article = calvin.articles.create!(title: "Sinatra before Rails", featured?: true, wiki_id: calvins_wiki.id)
+alices_article = alice.articles.create!(title: "List of Rails Gems", featured?: true, wiki_id: alices_wiki.id)
+joes_article = joe.articles.create!(title: "History of Rails", featured?: true, wiki_id: joes_wiki.id)
 
-Snapshot.create!(body: "rails is great", article: joes_article, user_id: 1)
+chands_article.snapshots.create!(body: "Here are the top 10 reasons Ruby on Rails is awesome:...")
+ilyas_article.snapshots.create!(body:"Devise is a confusing gem to work with, if you want to be able to customize your user authentication settings. Here are some easy steps to get you started: ...")
+calvins_article.snapshots.create!(body:"Sinatra is a back-end framework that is less opinionated than Rails, meaning it requires more knowledge of routes, controllers, models, etc...")
+alices_article.snapshots.create!(body: "Rails Gems are Ruby libraries for the the back-end framework, Ruby on Rails... Here is a comprehensive list of all Rails Gems with over 20,000 downloads")
+joes_article.snapshots.create!(body: "Rails was created in 2003 by David Heinemeier...")
 
-Snapshot.create!(body: "not a fan of devise", article: chands_article, user_id: 2)
+rails_category = Category.create!(name: "Rails")
+gems_category = Category.create!(name: "Gems")
+guide_category = Category.create!(name: "Guides")
+other_category = Category.create!(name: "Other")
 
+chands_article.articles_category.create!(category: rails_category)
 
-cat_one = Category.create!(name: "rails")
+ilyas_article.articles_category.create!(category: gems_category)
+ilyas_article.articles_category.create!(category: guide_category)
 
-cat_two = Category.create!(name: "gems")
+calvins_article.articles_category.create!(category: guide_category)
+calvins_article.articles_category.create!(category: other_category)
 
-cat_three = Category.create!(name: "guide")
+alices_article.articles_category.create!(category: rails_category)
+alices_article.articles_category.create!(category: gems_category)
 
-ArticlesCategory.create!(article: joes_article, category: cat_one)
-
-ArticlesCategory.create!(article: chands_article, category: cat_one)
-
-ArticlesCategory.create!(article: chands_article, category: cat_two)
-
-ArticlesCategory.create!(article: chands_article, category: cat_three)
+joes_article.articles_category.create!(category: rails_category)
