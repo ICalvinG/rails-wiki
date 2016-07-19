@@ -62,12 +62,13 @@ class ArticlesController < ApplicationController
 
 	def destroy
     @article = Article.find(params[:id])
+    @wiki = Wiki.find_by(id: @article.wiki_id)
     @snapshot = Snapshot.find(@article.snapshots.last.id)
       @article.destroy
 
       @snapshot.destroy
 
-      redirect_to articles_path
+      redirect_to wiki_path(@wiki)
 	end
 
 	private

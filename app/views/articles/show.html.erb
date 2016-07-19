@@ -1,5 +1,8 @@
-<h3 class="title-for-line"><%= @wiki.name %> Wiki </h3>
-<h4><%= link_to @article.title, article_path(@article) %></h4>
+<h3 class="title-for-line">Article from <%= @wiki.name %> Wiki </h3>
+<h4 id="article-title"><%= @article.title %></h4>
+        <% @article.categories.each do |category| %>
+          <div id="category">filed under: <%= category.name %></div>
+          <% end %>
 
   <div><%= @snapshot.body.html_safe %></div>
 
