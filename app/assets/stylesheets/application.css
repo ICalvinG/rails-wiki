@@ -22,6 +22,11 @@ body {
   margin-left: 50px;
   margin-right: 50px;
   margin-bottom: 100px;
+  background-size: 100%;
+}
+
+.container {
+  margin: 3%;
 }
 
 
@@ -56,13 +61,12 @@ a:visited {
 
 #header-image {
   padding:250px;
-  width: 100%;
   background-image: url("rails_wiki.jpg");
   background-repeat: no-repeat;
-
+  background-size: 100%;
+  margin-left: 2%;
+  margin-right: 2%;
 }
-
-
 
 #login-signup-logout-container {
   margin-bottom: 20px;
@@ -72,6 +76,7 @@ a:visited {
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   text-align: right;
+  width: 100%;
 }
 
 footer {
@@ -82,6 +87,7 @@ footer {
   border-bottom: 1px solid black;
   text-align: right;
 }
+
 
 .input-field {
       width: 40%;
@@ -151,12 +157,18 @@ footer {
 
 .title-for-line {
   border-bottom: 1px solid black;
+  font-size: 25px;
 }
 
 #browse-wikis {
-  text-decoration: none;
   font-size: 30px;
   font-weight: 700;
+}
+
+#login-home-section {
+  font-size: 20px;
+  font-weight: 700;
+  padding-top: 2%;
 }
 
 #category {
@@ -168,3 +180,12 @@ footer {
   font-size: 20px;
 }
 
+#footer-text {
+  padding-right: 1%;
+}
+
+.article-show-bottom-links {
+  border-top: 1px solid black;
+  margin-top: 3%;
+  padding-top: 1%;
+}

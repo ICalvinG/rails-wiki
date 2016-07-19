@@ -1,30 +1,34 @@
-<h2 class="title-for-line">edit your wiki</h2>
+<div class ="container">
 
-<%= form_for :wiki, url: wiki_path(@wiki), method: :patch do |f| %>
+  <h2 class="title-for-line">edit your wiki</h2>
 
-  <% if @wiki.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@wiki.errors.count, "error") %> prohibited
-        this wiki from being saved:
-      </h2>
-      <ul>
-        <% @wiki.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
+  <%= form_for :wiki, url: wiki_path(@wiki), method: :patch do |f| %>
+
+    <% if @wiki.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@wiki.errors.count, "error") %> prohibited
+          this wiki from being saved:
+        </h2>
+        <ul>
+          <% @wiki.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <p>
+      <%= f.label :name %><br>
+      <%= f.text_field :name, class: "input-field" %>
+    </p>
+    <p>
+      <%= f.submit "submit", class: "button" %>
+
+    </p>
+
   <% end %>
 
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name, class: "input-field" %>
-  </p>
-  <p>
-    <%= f.submit "submit", class: "button" %>
+  <%= link_to 'Back', wikis_path %>
 
-  </p>
-
-<% end %>
-
-<%= link_to 'Back', wikis_path %>
+</div>

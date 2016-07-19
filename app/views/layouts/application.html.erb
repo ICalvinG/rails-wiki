@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RailsWiki</title>
+  <title>::wiki on rails::</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -39,15 +39,16 @@
   <p class="alert"><%= alert %></p>
 
 
-<%= yield %>
-
-<footer>
-
-&copy; <%= link_to "radicaldesi", "http://www.github.com/radicaldesi", target: "_blank" %> • <%= link_to "joeyoo", "http://www.github.com/joeyoo", target: "_blank"  %> • <%= link_to "icalving", "http://www.github.com/icalving", target: "_blank"  %> • <%= link_to "cfnils", "http://www.github.com/cfnils", target: "_blank"  %> • <%= link_to "alicefonfa", "http://www.github.com/alicefonfa", target: "_blank"  %>
+    <%= yield %>
 
 
+  <footer>
 
-</footer>
+  <div id="footer-text">&copy; <%= link_to "chand", "http://www.github.com/chand", target: "_blank" %> • <%= link_to "notjoeyoo", "http://www.github.com/notjoeyoo", target: "_blank"  %> • <%= link_to "icalving", "http://www.github.com/icalving", target: "_blank"  %> • <%= link_to "cfnils", "http://www.github.com/cfnils", target: "_blank"  %> • <%= link_to "alicefonfa", "http://www.github.com/alicefonfa", target: "_blank"  %></div>
+
+
+
+  </footer>
 <% end %>
 </body>
 
