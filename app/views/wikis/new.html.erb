@@ -1,10 +1,14 @@
-<h1>create a new wiki:</h1>
+<div class ="container">
 
-<%= form_for :wiki, url: wikis_path do |f| %>
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name, class: "input-field" %>
-  <p>
-    <%= f.submit "submit", class: "button" %>
-  </p>
-<% end %>
+
+  <h2 class="title-for-line">create a new wiki:</h2>
+
+  <%= form_for :wiki, url: wikis_path do |f| %>
+      <%= f.label :name %><br>
+      <%= f.text_field :name, class: "input-field" %>
+    <p>
+      <%= f.submit "submit", class: "button" %>
+    </p>
+  <% end %>
+
+</div>

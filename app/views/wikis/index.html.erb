@@ -1,15 +1,18 @@
-<h2>wikirailsopedia wikis:</h2>
+<div class ="container">
 
+  <h2 class="title-for-line">wikirailsopedia wikis:</h2>
 
-  <% @wikis.each do |wiki| %>
-    <div class="wiki-name"><h3><%= link_to wiki.name, wiki_path(wiki) %></h3></div>
-      <% if current_user && wiki.administered_by?(current_user) %>
-    <div class="edit-link"><%= link_to 'edit this wiki', edit_wiki_path(wiki) %></div>
-    <div class="delete-link"><%= link_to 'delete this wiki', wiki_path(wiki), method: :delete, data: { confirm: 'Are you sure?' } %></div>
     
+    <% @wikis.each do |wiki| %>
+      <div class="wiki-name"><h3><%= link_to wiki.name, wiki_path(wiki) %></h3></div>
 
-  <div class="create-new-wiki-link"><%= link_to "don't see a wiki you like? create a new wiki!", new_wiki_path %></div>
+        <% if current_user && wiki.administered_by?(current_user) %>
+      <div><%= link_to 'edit this wiki', edit_wiki_path(wiki) %> • <%= link_to 'delete this wiki', wiki_path(wiki), method: :delete, data: { confirm: 'Are you sure?' } %></div>
+      
 
 
-      <% end %>
-  <% end %>
+        <% end %>
+    <% end %>
+    <div class="create-new-wiki-link"><%= link_to "don't see a wiki you like? create a new wiki!", new_wiki_path %></div>
+
+</div>

@@ -1,8 +1,13 @@
-<h2>your article revision history</h2>
-<% @article.snapshots.each do |snapshot| %>
-<b>Snapshot:</b> <%= snapshot.body.html_safe %>
-<b>Created:</b> <%= snapshot.created_at %><br>
-<b>Updated:</b> <%= snapshot.updated_at %><br><br>
-<% end %>
+<div class ="container">
 
-<div class="back-link">back to your <%= link_to 'article', article_path(@article) %>!</div>
+  <h2 class="title-for-line">your article revision history</h2>
+  
+  <% @article.snapshots.each do |snapshot| %>
+    <%= snapshot.body.html_safe %><br><br>
+    <b>Created:</b> <%= snapshot.created_at %><br>
+    <b>Updated:</b> <%= snapshot.updated_at %><br><br>
+  <% end %>
+
+  <div class="back-link">back to your <%= link_to 'article', article_path(@article) %>!</div>
+
+</div>

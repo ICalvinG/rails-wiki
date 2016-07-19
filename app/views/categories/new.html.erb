@@ -1,6 +1,10 @@
-<h2>create a new category</h2>
-<%= form_for :category, url: {action: "create"} do |f| %>
-  <span>Wiki Name: </span>
-  <%= f.text_field :name, class: "form-field" %>
-  <%= f.submit "submit" %>
-<% end %>
+<div class ="container">
+
+  <h2>create a new category</h2>
+  <%= form_for :category, url: {action: "create"} do |f| %>
+    <span>Wiki Name: </span>
+    <%= f.text_field :name, class: "form-field" %>
+    <%= f.submit "submit" %>
+  <% end %>
+
+</div>

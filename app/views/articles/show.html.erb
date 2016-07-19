@@ -1,11 +1,18 @@
-<h4><%= link_to @article.title, article_path(@article) %></h4>
+<div class ="container">
 
-  <div><%= @snapshot.body.html_safe %></div>
+  <h3 class="title-for-line">Wiki: <%= @wiki.name %> </h3>
+  <h4 id="article-title">Article: <%= @article.title %></h4>
+          <% @article.categories.each do |category| %>
+            <div id="category">filed under: <%= category.name %></div>
+            <% end %>
 
-  <% if current_user && @wiki.administered_by?(current_user) %>
+    <div><%= @snapshot.body.html_safe %></div>
 
-    <div><%= link_to 'edit your article', edit_article_path(@article) %> • <%= link_to 'delete your article', article_path(@article), method: "delete" %></div>
+    <% if current_user && @wiki.administered_by?(current_user) %>
 
-    <div>see your <%= link_to 'revisions', snapshot_path(@snapshot) %>history!</div>
+      <div class="article-show-bottom-links"><%= link_to 'see your revisions history!', snapshot_path(@snapshot) %> • <%= link_to 'edit your article', edit_article_path(@article) %> • <%= link_to 'delete your article', article_path(@article), method: "delete" %></div><br>
 
-  <% end %>
+
+    <% end %>
+
+</div>
