@@ -57,12 +57,3 @@ alices_article.articles_category.create!(category: rails_category)
 alices_article.articles_category.create!(category: gems_category)
 
 joes_article.articles_category.create!(category: rails_category)
-
-
-ArticlesCategory.create!(article: chands_article, category: cat_one)
-
-ArticlesCategory.create!(article: ilyas_article, category: cat_one)
-
-ArticlesCategory.create!(article: calvins_article, category: cat_two)
-
-ArticlesCategory.create!(article: alices_article, category: cat_three)
