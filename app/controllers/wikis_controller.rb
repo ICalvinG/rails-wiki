@@ -12,10 +12,6 @@ class WikisController < ApplicationController
 		@role = @wiki.roles.new
 	end
 
-	def new
-		
-	end
-
 	def edit
 		@wiki = Wiki.find(params[:id])
 	end

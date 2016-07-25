@@ -1,15 +1,21 @@
 <div class="container">
-
-  <h1> Edit User Roles for this Wiki! </h1>
-  <% @wiki.roles.each do |role| %>
-  	<%= role.user.email %>
-  	<%=form_tag('/roles/role.id/edit', method: :put)%>
-  	<% if @wiki.administered_by?(role.user)%>
-  		<%=check_box_tag('admin', 'yes', true)%>
-  	<% else %>
-  		<%=check_box_tag('admin', 'yes', false, class: "checkbox")%>
-  	<%end%>
-  	<%= submit_tag "update status", class: "button" %>
-  <%end%>
-  
+  <h1> Edit Admin Roles </h1>
+  <ul>
+    <% @wiki.roles.each do |role| %>
+      <li>
+        <%= form_tag("/roles/#{role.id}", method: :put, class:"role-form") %>
+          <%= hidden_field_tag :role_id, role.id %>
+          <% if @wiki.administered_by?(role.user) %>
+            <%= hidden_field_tag :admin?, false %>
+            <%=check_box_tag(:admin?, true, checked = true)%>
+          <% else %>
+            <%= hidden_field_tag :admin?, false %>
+            <%=check_box_tag(:admin?, true) %>
+          <% end %>
+        <%= submit_tag "", style: "display:none;" %>
+        <%= role.user.email %>
+      </li>
+    <% end %>
+  </ul>
+  <div class="button roll-submit" style="width:10%;">Submit</div>
 </div>
